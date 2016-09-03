@@ -1,0 +1,44 @@
+<html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>My AngularJS App</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .angular-google-map-container {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            margin: 0;
+            box-sizing: border-box;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+    </style>
+    <script src="libs/angular/angular.min.js"></script>
+    <script src="libs/lodash/lodash.min.js"></script>
+    <script src="libs/angular-simple-logger/dist/angular-simple-logger.min.js"></script>
+    <script src="//maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script src="libs/angular-google-maps.min.js"></script>
+    <script src="libs/angular-websocket.min.js"></script>
+    <script src="javascripts/app.js"></script>
+</head>
+<body>
+
+<div ng-controller="shangula">
+    <ui-gmap-google-map class="angular-google-map-container" center='map.center' zoom='map.zoom' options="options"
+                        events="map.events" ng-click="click()">
+        <ui-gmap-marker ng-repeat="m in map.markers" coords="m.coords" icon="m.icon" idkey="m.id"></ui-gmap-marker>
+    </ui-gmap-google-map>
+
+</div>
+
+
+<!-- In production use:
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+-->
+</body>
+</html>
